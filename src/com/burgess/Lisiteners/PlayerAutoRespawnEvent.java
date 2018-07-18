@@ -8,8 +8,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-/** @deprecated */
-@Deprecated
 public class PlayerAutoRespawnEvent extends Event {
     private Player p;
     private Location deathLoc;
@@ -17,7 +15,7 @@ public class PlayerAutoRespawnEvent extends Event {
     private int respawnDelayTicks = 0;
     private static final HandlerList handlers = new HandlerList();
 
-    public PlayerAutoRespawnEvent(Player p, Location deathLoc, Location respawnLoc) {
+    PlayerAutoRespawnEvent(Player p, Location deathLoc, Location respawnLoc) {
         this.p = p;
         this.deathLoc = deathLoc;
         this.respawnLoc = respawnLoc;
