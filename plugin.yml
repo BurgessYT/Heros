@@ -1,0 +1,22 @@
+name: WolfCraftPluginHeros
+main: com.burgess.Heros.MainClass
+version: 1.0
+
+commands:
+  myskill:
+    description: Main command.
+    aliases: [ms, skill]
+
+permissions:
+  myskill.1:
+    description: skill 1.
+    default: true
+  myskill.2:
+    description: skill 2.
+    default: true
+  myskill.3:
+    description: skill 3.
+    default: true
+  myskill.4:
+    description: skill 4.
+    default: true

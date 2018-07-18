@@ -1,0 +1,12 @@
+# 狼族服务器版权所有,严禁任何未经授权服务器使用
+# Author Burgess
+# QQ 962389099
+#------------------------------------------------
+#是否强制玩家登陆地点
+ForceLoginSpawn: true
+#强制登陆的世界名
+ForceSpawnWorld: world
+#技能在以下世界允许被使用
+EnableWorlds:
+ - world
+ - ontherWorlds
