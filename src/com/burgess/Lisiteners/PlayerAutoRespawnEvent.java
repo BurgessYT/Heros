@@ -37,14 +37,10 @@ public class PlayerAutoRespawnEvent extends Event {
         return this.p.getLastDamageCause().getCause();
     }
 
-    /** @deprecated */
-    @Deprecated
     public int getRespawnDelayTicks() {
         return this.respawnDelayTicks;
     }
 
-    /** @deprecated */
-    @Deprecated
     public double getRespawnDelaySeconds() {
         return Double.parseDouble(this.respawnDelayTicks + ".0") / 20.0D;
     }

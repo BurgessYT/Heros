@@ -2,36 +2,30 @@ package com.burgess.Heros;
 
 import com.burgess.Lisiteners.MainLisener;
 import com.burgess.Lisiteners.PlayerCommand;
-import java.io.File;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class MainClass extends JavaPlugin {
     public MainClass() {
     }
 
     public void onEnable() {
-        if (!Bukkit.getServerName().equals("TheWolfChan")) {
-            this.getServer().getLogger().info(PublicData.pluginPrefix + "服务器未经授权,禁止使用此插件");
-            this.getPluginLoader().disablePlugin(Bukkit.getPluginManager().getPlugin("WolfCraftPluginHeros"));
-        } else {
-            this.getServer().getLogger().info(PublicData.pluginPrefix + "已运行");
-            this.getServer().getPluginManager().registerEvents(new MainLisener(), this);
-            this.loadConfig();
-        }
-
+        this.getServer().getLogger().info(PublicData.pluginPrefix + "已运行");
+        this.getServer().getPluginManager().registerEvents(new MainLisener(), this);
+        this.loadConfig();
     }
 
     public void onDisable() {
         this.getServer().getLogger().info(PublicData.pluginPrefix + "已关闭");
     }
 
-    public void loadConfig() {
+    private void loadConfig() {
         if (!this.getDataFolder().exists()) {
-            this.getDataFolder().mkdir();
+            this.getDataFolder().mkdirs();
         }
 
         PublicData.PluginFile = this.getDataFolder();

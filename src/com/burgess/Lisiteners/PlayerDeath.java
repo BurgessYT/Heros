@@ -13,7 +13,7 @@ public class PlayerDeath {
     PlayerDeathEvent death;
 
     public PlayerDeath() {
-        this((PlayerDeathEvent)null);
+        this(null);
     }
 
     public PlayerDeath(PlayerDeathEvent death) {
@@ -32,7 +32,7 @@ public class PlayerDeath {
                     Location respawnLoc = player.getLocation();
                     player.teleport(deathLoc);
                     player.setGameMode(GameMode.SPECTATOR);
-                    final Hero h = (Hero)PublicData.onlineHero.get(player.getName());
+                    final Hero h = PublicData.onlineHero.get(player.getName());
                     if (h.hero.equals(Hero.Ghost) && h.enableSkill2) {
                         h.respawnLoc = h.player.getLocation();
                         h.player.sendMessage(PublicData.pluginPrefix + "§7[ §b不死之躯 §7] §d效果生效");

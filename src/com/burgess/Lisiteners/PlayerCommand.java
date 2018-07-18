@@ -18,7 +18,6 @@ public class PlayerCommand {
     }
 
     public boolean command(CommandSender sender, Command cmd, String label, String[] args) {
-        int var10000 = args.length;
         String playerName;
         if (args[0].equalsIgnoreCase("set")) {
             label70: {
@@ -29,7 +28,7 @@ public class PlayerCommand {
                         break label70;
                     }
 
-                    Hero hero = (Hero)PublicData.onlineHero.get(playerName);
+                    Hero hero = PublicData.onlineHero.get(playerName);
                     if (!heroName.equals(Hero.Angel) && !heroName.equals(Hero.Demon) && !heroName.equals(Hero.Ghost) && !heroName.equals(Hero.Hunter) && !heroName.equals(Hero.Knight) && !heroName.equals(Hero.NormalHuman) && !heroName.equals(Hero.TreeElves) && !heroName.equals(Hero.Vampire)) {
                         sender.sendMessage("没有这个种族，种族名称为 Angel Demon Ghost Hunter Knight NormalHuman TreeElves Vampire");
                         break label70;
@@ -88,8 +87,8 @@ public class PlayerCommand {
         }
     }
 
-    public void skill(String playername, int skillIndex) {
-        Hero h = (Hero)PublicData.onlineHero.get(playername);
+    private void skill(String playername, int skillIndex) {
+        Hero h = PublicData.onlineHero.get(playername);
         if (h.hero.equals(Hero.Angel)) {
             if (skillIndex == 1) {
                 Angel.skill1(h.player);

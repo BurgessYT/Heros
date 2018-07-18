@@ -213,7 +213,7 @@ public class PublicData {
 
     public static void loadPlayerActionBar(Player player) {
         if (onlineHero.containsKey(player.getName())) {
-            Hero hero = (Hero)onlineHero.get(player.getName());
+            Hero hero = onlineHero.get(player.getName());
             if (hero.player.isOnline()) {
                 String heroName = hero.hero;
                 String[] dis;
