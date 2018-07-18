@@ -76,14 +76,12 @@ public class Angel {
         } else if (!angel.isSkill2Run) {
             angel.isSkill2Run = true;
             List<Entity> nearEntity = player.getNearbyEntities(4.0D, 4.0D, 4.0D);
-            List<Player> nearPlayer = new ArrayList();
+            List<Player> nearPlayer = new ArrayList<>();
             nearPlayer.add(player);
-            Iterator var5 = nearEntity.iterator();
 
-            while(var5.hasNext()) {
-                Entity entity = (Entity)var5.next();
+            for (Object entity : nearEntity) {
                 if (entity instanceof Player) {
-                    nearPlayer.add((Player)entity);
+                    nearPlayer.add((Player) entity);
                 }
             }
 
@@ -92,10 +90,10 @@ public class Angel {
                 angel.targetPlayer = player;
             } else {
                 for(int i = 0; i < nearPlayer.size() - 1; ++i) {
-                    if (((Player)nearPlayer.get(i)).getHealth() < ((Player)nearPlayer.get(i + 1)).getHealth()) {
-                        angel.targetPlayer = (Player)nearPlayer.get(i);
+                    if (nearPlayer.get(i).getHealth() < nearPlayer.get(i + 1).getHealth()) {
+                        angel.targetPlayer = nearPlayer.get(i);
                     } else {
-                        angel.targetPlayer = (Player)nearPlayer.get(i + 1);
+                        angel.targetPlayer = nearPlayer.get(i + 1);
                     }
                 }
             }
@@ -219,7 +217,7 @@ public class Angel {
             while(var5.hasNext()) {
                 Entity entity = (Entity)var5.next();
                 if (entity instanceof Player && PublicData.onlineHero.containsKey(entity.getName())) {
-                    Hero hero = (Hero)PublicData.onlineHero.get(entity.getName());
+                    Hero hero = PublicData.onlineHero.get(entity.getName());
                     if (((Player)entity).getGameMode() == GameMode.SPECTATOR) {
                         hero.respawnLoc = entity.getLocation();
                         entity.sendMessage(PublicData.pluginPrefix + "§d您被 §b" + player.getName() + " §d复活了!");
