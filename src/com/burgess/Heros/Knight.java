@@ -1,7 +1,5 @@
 package com.burgess.Heros;
 
-import java.util.Iterator;
-import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
@@ -15,13 +13,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import java.util.Iterator;
+import java.util.List;
 
 public class Knight {
     public Knight() {
     }
 
     public static void skill1(final Player player) {
-        final Hero knight = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero knight = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -75,7 +75,7 @@ public class Knight {
     }
 
     public static void skill2(final Player player) {
-        final Hero knight = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero knight = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -97,9 +97,9 @@ public class Knight {
             while(var6.hasNext()) {
                 Entity entity = (Entity)var6.next();
                 if (entity instanceof Player && PublicData.onlineHero.containsKey(entity.getName())) {
-                    Hero silenceHero = (Hero)PublicData.onlineHero.get(entity.getName());
+                    Hero silenceHero = PublicData.onlineHero.get(entity.getName());
                     if (Math.random() <= 0.5D || !silenceHero.canUseSkill) {
-                        break;
+                        continue;
                     }
 
                     silenceHero.silence(silenceTime);
@@ -135,7 +135,7 @@ public class Knight {
     }
 
     public static void skill3(final Player player) {
-        final Hero knight = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero knight = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -187,7 +187,7 @@ public class Knight {
     }
 
     public static void skill4(final Player player) {
-        final Hero knight = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero knight = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -216,8 +216,8 @@ public class Knight {
             ItemMeta horseArmourMeta = horseArmour.getItemMeta();
             horseArmourMeta.setDisplayName("骑士的马凯");
             horseArmour.setItemMeta(horseArmourMeta);
-            knight.horse.getInventory().addItem(new ItemStack[]{saddle});
-            knight.horse.getInventory().addItem(new ItemStack[]{horseArmour});
+            knight.horse.getInventory().addItem(saddle);
+            knight.horse.getInventory().addItem(horseArmour);
             knight.horse.addPassenger(player);
             BukkitRunnable br = new BukkitRunnable() {
                 public void run() {

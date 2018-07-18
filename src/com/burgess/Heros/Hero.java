@@ -21,7 +21,7 @@ public class Hero implements Comparable<Hero> {
     private BukkitRunnable healthRunnable = null;
     public Horse horse = null;
     public Player player;
-    public Player targetPlayer = null;
+    Player targetPlayer = null;
     public Location respawnLoc = null;
     public Location arrowLoc = null;
     public String hero = "NormalHuman";
@@ -36,10 +36,10 @@ public class Hero implements Comparable<Hero> {
     public int skill2Delay = 0;
     public int skill3Delay = 0;
     public int skill4Delay = 0;
-    public boolean isSkill1Run = false;
-    public boolean isSkill2Run = false;
-    public boolean isSkill3Run = false;
-    public boolean isSkill4Run = false;
+    boolean isSkill1Run = false;
+    boolean isSkill2Run = false;
+    boolean isSkill3Run = false;
+    boolean isSkill4Run = false;
     public boolean enableSkill1 = false;
     public boolean enableSkill2 = false;
     public boolean enableSkill3 = false;
@@ -113,7 +113,7 @@ public class Hero implements Comparable<Hero> {
         File playerFile = new File(PublicData.playerDataFile, playername + ".yml");
         new YamlConfiguration();
         YamlConfiguration playerconfig = YamlConfiguration.loadConfiguration(playerFile);
-        Hero h = (Hero)PublicData.onlineHero.get(playername);
+        Hero h = PublicData.onlineHero.get(playername);
         playerconfig.set("Hero", h.hero);
         playerconfig.set("Level", h.level);
         playerconfig.set("XP", h.xp);

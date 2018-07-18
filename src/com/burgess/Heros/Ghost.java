@@ -15,7 +15,7 @@ public class Ghost {
     }
 
     public static void skill1(final Player player) {
-        final Hero ghost = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero ghost = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {

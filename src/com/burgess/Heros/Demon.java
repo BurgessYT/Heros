@@ -17,7 +17,7 @@ public class Demon {
     }
 
     public static void skill1(final Player player) {
-        final Hero demon = (Hero)PublicData.onlineHero.get(player.getName());
+        Hero demon = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -63,8 +63,7 @@ public class Demon {
                             demon.isSkill1Run = false;
                             this.cancel();
                         }
-                    } catch (IllegalStateException var2) {
-                        ;
+                    } catch (IllegalStateException ignored) {
                     }
 
                 }
@@ -130,7 +129,7 @@ public class Demon {
             player.sendMessage(PublicData.pluginPrefix + "§d您释放了 §7[ §b极灸 §7] ");
 
             for(int i = 0; i < 15; ++i) {
-                SmallFireball sfb = (SmallFireball)demon.player.getWorld().spawn(demon.player.getEyeLocation().add(demon.player.getEyeLocation().getDirection().multiply(2).add(new Vector(Math.random() * 2.0D - 1.0D, 0.0D, 0.0D)).getX(), demon.player.getEyeLocation().getDirection().getY(), demon.player.getEyeLocation().getDirection().multiply(2).add(new Vector(0.0D, 0.0D, Math.random() * 2.0D - 1.0D)).getZ()), SmallFireball.class);
+                SmallFireball sfb = demon.player.getWorld().spawn(demon.player.getEyeLocation().add(demon.player.getEyeLocation().getDirection().multiply(2).add(new Vector(Math.random() * 2.0D - 1.0D, 0.0D, 0.0D)).getX(), demon.player.getEyeLocation().getDirection().getY(), demon.player.getEyeLocation().getDirection().multiply(2).add(new Vector(0.0D, 0.0D, Math.random() * 2.0D - 1.0D)).getZ()), SmallFireball.class);
                 sfb.setShooter(player);
             }
 
@@ -150,8 +149,7 @@ public class Demon {
                             demon.enableSkill3 = false;
                             this.cancel();
                         }
-                    } catch (IllegalStateException var2) {
-                        ;
+                    } catch (IllegalStateException ignored) {
                     }
 
                 }
