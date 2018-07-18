@@ -17,7 +17,7 @@ public class TreeElves {
     }
 
     public static void skill1(final Player player) {
-        final Hero treeelves = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero treeelves = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -57,7 +57,7 @@ public class TreeElves {
     }
 
     public static void skill2(final Player player) {
-        final Hero treeelves = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero treeelves = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!treeelves.canUseSkill) {
@@ -109,7 +109,7 @@ public class TreeElves {
     }
 
     public static void skill3(final Player player) {
-        final Hero treeelves = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero treeelves = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {

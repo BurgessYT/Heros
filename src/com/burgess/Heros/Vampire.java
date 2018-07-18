@@ -1,28 +1,25 @@
 package com.burgess.Heros;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Monster;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 public class Vampire {
     public Vampire() {
     }
 
     public static void skill1(final Player player) {
-        final Hero vampire = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero vampire = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -113,7 +110,7 @@ public class Vampire {
     }
 
     public static void skill2(final Player player) {
-        final Hero vampire = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero vampire = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -176,7 +173,7 @@ public class Vampire {
     }
 
     public static void skill3(final Player player) {
-        final Hero vampire = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero vampire = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {
@@ -220,7 +217,7 @@ public class Vampire {
     }
 
     public static void skill4(final Player player) {
-        final Hero vampire = (Hero)PublicData.onlineHero.get(player.getName());
+        final Hero vampire = PublicData.onlineHero.get(player.getName());
         if (player.getGameMode() == GameMode.SPECTATOR) {
             player.sendMessage(PublicData.pluginPrefix + "§c您处于死亡状态，不可使用技能");
         } else if (!PublicData.enableWorlds.contains(player.getWorld().getName())) {

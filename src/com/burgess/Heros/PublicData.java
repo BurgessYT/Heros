@@ -1,30 +1,31 @@
 package com.burgess.Heros;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import me.winterguardian.easyscoreboards.ScoreboardUtil;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class PublicData {
     public static String pluginPrefix = "§f[ §dB娘 §f] §b> §r";
     public static String forceSpawnWorld = null;
-    public static File playerDataFile = null;
+    static File playerDataFile = null;
     public static File PluginFile = null;
-    public static List<String> enableWorlds = new ArrayList();
-    public static Map<String, Hero> onlineHero = new TreeMap();
-    public static Map<Hero, Location> boom = new TreeMap();
+    public static List<String> enableWorlds = new ArrayList<>();
+    public static Map<String, Hero> onlineHero = new TreeMap<>();
+    public static Map<Hero, Location> boom = new TreeMap<>();
 
     public PublicData() {
     }
 
     public static String translateHeroName(String str) {
-        String rstr = "";
+        String rstr;
         switch(str.hashCode()) {
             case -2122224736:
                 if (str.equals("Hunter")) {
@@ -79,7 +80,7 @@ public class PublicData {
         return rstr + "§r ";
     }
 
-    public static void particleFrontCreate(Location Loc, double Radii, Effect Type) {
+    static void particleFrontCreate(Location Loc, double Radii, Effect Type) {
         for(double i = 1.5D; i <= Radii; i += 2.0D) {
             for(double o = 90.0D; o <= 270.0D; ++o) {
                 double x = i * Math.cos(o / 180.0D * 3.141592653589793D) * -Math.cos((double)((90.0F - Loc.clone().getPitch() + 90.0F) / 180.0F) * 3.141592653589793D) * Math.sin((double)(Loc.clone().getYaw() / 180.0F) * 3.141592653589793D) + i * Math.sin(o / 180.0D * 3.141592653589793D) * -Math.sin((double)((Loc.clone().getYaw() - 90.0F) / 180.0F) * 3.141592653589793D);
@@ -105,7 +106,7 @@ public class PublicData {
 
     }
 
-    public static void particleAroundMaxCreate(Location Loc, double Radii, Effect Type) {
+    static void particleAroundMaxCreate(Location Loc, double Radii, Effect Type) {
         for(double i = 1.5D; i <= Radii; ++i) {
             for(double o = 0.0D; o <= 360.0D; ++o) {
                 double x = i * Math.cos(o / 180.0D * 3.141592653589793D) * -Math.cos((double)((90.0F - Loc.clone().getPitch() + 90.0F) / 180.0F) * 3.141592653589793D) * Math.sin((double)(Loc.clone().getYaw() / 180.0F) * 3.141592653589793D) + i * Math.sin(o / 180.0D * 3.141592653589793D) * -Math.sin((double)((Loc.clone().getYaw() - 90.0F) / 180.0F) * 3.141592653589793D);
@@ -157,7 +158,7 @@ public class PublicData {
 
     }
 
-    public static boolean hasObstacle(Location mainLoc, Location othLoc) {
+    static boolean hasObstacle(Location mainLoc, Location othLoc) {
         int mainX = mainLoc.getBlockX();
         int mainY = mainLoc.getBlockY();
         int mainZ = mainLoc.getBlockZ();
