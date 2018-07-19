@@ -165,15 +165,14 @@ public class PublicData {
         int othX = othLoc.getBlockX();
         int othY = othLoc.getBlockY();
         int othZ = othLoc.getBlockZ();
-        Location newLoc = othLoc;
         int bounds = 0;
-        if (Math.abs(othX - mainX) > Math.abs(othY - othY)) {
-            if (Math.abs(othX - mainX) > Math.abs(othZ - othZ)) {
+        if (Math.abs(othX - mainX) >0) {
+            if (Math.abs(othX - mainX) > 0) {
                 bounds = bounds + Math.abs(othX - mainX);
             } else {
                 bounds = bounds + Math.abs(othZ - mainZ);
             }
-        } else if (Math.abs(othY - mainY) > Math.abs(othZ - othZ)) {
+        } else if (Math.abs(othY - mainY) > 0) {
             bounds = bounds + Math.abs(othY - mainY);
         } else {
             bounds = bounds + Math.abs(othZ - mainZ);
@@ -181,30 +180,30 @@ public class PublicData {
 
         for(int i = 0; i < bounds; ++i) {
             if (othX > mainX) {
-                newLoc.add(-1.0D, 0.0D, 0.0D);
+                othLoc.add(-1.0D, 0.0D, 0.0D);
                 --othX;
             } else if (othX != mainX) {
-                newLoc.add(1.0D, 0.0D, 0.0D);
+                othLoc.add(1.0D, 0.0D, 0.0D);
                 ++othX;
             }
 
             if (othY > mainY) {
-                newLoc.add(0.0D, -1.0D, 0.0D);
+                othLoc.add(0.0D, -1.0D, 0.0D);
                 --othY;
             } else if (othY != mainY) {
-                newLoc.add(0.0D, 1.0D, 0.0D);
+                othLoc.add(0.0D, 1.0D, 0.0D);
                 ++othY;
             }
 
             if (othZ > mainZ) {
-                newLoc.add(0.0D, 0.0D, -1.0D);
+                othLoc.add(0.0D, 0.0D, -1.0D);
                 --othZ;
             } else if (othZ != mainZ) {
-                newLoc.add(0.0D, 0.0D, 1.0D);
+                othLoc.add(0.0D, 0.0D, 1.0D);
                 ++othZ;
             }
 
-            if (!newLoc.getBlock().getType().equals(Material.AIR) && !newLoc.getBlock().getType().equals(Material.YELLOW_FLOWER) && !newLoc.getBlock().getType().equals(Material.CHORUS_FLOWER) && !newLoc.getBlock().getType().equals(Material.LONG_GRASS) && !newLoc.getBlock().getType().equals(Material.GRASS)) {
+            if (!othLoc.getBlock().getType().equals(Material.AIR) && !othLoc.getBlock().getType().equals(Material.YELLOW_FLOWER) && !othLoc.getBlock().getType().equals(Material.CHORUS_FLOWER) && !othLoc.getBlock().getType().equals(Material.LONG_GRASS) && !othLoc.getBlock().getType().equals(Material.GRASS)) {
                 return true;
             }
         }
